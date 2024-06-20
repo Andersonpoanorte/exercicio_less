@@ -1,0 +1,130 @@
+@import "variaveis.less";
+@import "mapas.less";
+
+@breakpointsMobile: ~"(max-width: 767px)";
+@breakpointTablet: ~"(min-width: 788px) and (max-width: 1023px)";
+
+.liststylesnone {
+    list-style: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: #colors[corBody];
+}
+
+li {
+    .liststylesnone();
+}
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+
+    @media @breakpointsMobile {
+        .products {
+            display: block;
+        }
+    
+        .products-item {
+            margin-bottom: 32px;
+            text-align: center;
+        }
+    }
+
+    @media @breakpointTablet {
+        .container {
+            max-width: 80%;
+        } 
+
+        .products {
+            grid-template-columns: repeat(2, 48.5%);
+            column-gap: 3%;
+        }
+    }
+}
+
+header {
+    background-color: #colors[corHeader];
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    
+    
+    .menu {
+        display: flex;
+        
+    }
+    
+    .menu li {
+        font-weight: bold;
+        margin-left: 24px;
+    }
+
+    .menu li a {
+        color: #colors[corTexto];
+        text-decoration: none;
+    }
+}
+
+
+section {
+    padding: 56px 0;
+
+    .products {
+        #products()
+    }
+
+    .products-item img {
+        #products-item-img
+    }
+
+    .products-item h4,
+     p {
+        margin-top: 8px
+    }
+
+    .product-button {
+        #products-buttons();
+        background-color: #colors[corButton];
+        color: #colors[corTexto];
+
+        &:hover {
+            background-color: #colors[btnHover];
+        }
+    }
+}
+
+.social-links {
+    #social-link();
+
+    img {
+        transition: all ease .3s;
+
+        &:hover {
+            transform: scale(1.3);
+        }
+    }
+
+}
+
+footer .container h3 {
+    #footer();
+}
+
+
+ 
